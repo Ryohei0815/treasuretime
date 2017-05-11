@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//Playerの動きを制御する
 public class PlayerController : MonoBehaviour {
 
 	float speed = 3;
@@ -12,7 +14,7 @@ public class PlayerController : MonoBehaviour {
 
 	float timer;
 
-	int Mode = 0;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -21,6 +23,31 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+
+		//モードがExplorationの時
+		if (GameManager.Instance.currentMode == Mode.Exploration) {
+			Move ();
+		}
+		//モードがRendaの時
+		else if (GameManager.Instance.currentMode == Mode.Renda){
+
+			if (Input.GetKeyDown (KeyCode.Space)) {
+				PushRenda ();
+			}
+
+			if (Input.GetKeyDown (KeyCode.DownArrow)) {
+				GameManager.Instance.ChangeMode (Mode.Combat);
+			}
+
+		}
+
+		if (GameManager.Instance.currentMode == Mode.Combat) {
+			Move ();
+		}
+
+	}
+
+	void Move(){
 		if (Input.GetKey (KeyCode.LeftArrow)) {
 			transform.position += Vector3.left * speed * Time.deltaTime;
 		}
@@ -36,23 +63,11 @@ public class PlayerController : MonoBehaviour {
 		if (Input.GetKey (KeyCode.DownArrow)) {
 			transform.position += Vector3.down * speed * Time.deltaTime;
 		}
-
-		if (rendamode) {
-			if (Input.GetKeyDown (KeyCode.Space)) {
-				PushRenda ();
-			}
-
-
-	
-			
-		
-		}
 	}
 
 	// 連打ボタンを押す
 	void PushRenda(){
-			
-		count++;
+		GameManager.Instance.AddRendaCount ();
 
 		GenerateEffect ();
 
@@ -69,12 +84,12 @@ public class PlayerController : MonoBehaviour {
 	//colはぶつかったものの情報
 
 	void OnTriggerEnter2D (Collider2D col){
-		Debug.Log (1);
-		if (col.tag == "Goal") { //　Goalにぶつかったときの処理を書く
+		if (col.tag == "Goal") { //Goalにぶつかったときの処理を書く
 		} else if (col.tag == "TreasureChest") {　//宝箱にぶつかったときの処理を書く
 			//連打モードにしたい
-			Debug.Log(2);
-			Destroy (col.gameObject);//ぶつかった物を消す 
+			GameManager.Instance.ChangeMode(Mode.Renda);
+			//Destroy (col.gameObject);//ぶつかった物を消す 
 		}
 	}
 }
+	
