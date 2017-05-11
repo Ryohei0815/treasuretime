@@ -85,7 +85,9 @@ public class PlayerController : MonoBehaviour {
 
 	void OnTriggerEnter2D (Collider2D col){
 		if (col.tag == "Goal") { //Goalにぶつかったときの処理を書く
-		} else if (col.tag == "TreasureChest") {　//宝箱にぶつかったときの処理を書く
+		} 
+
+		else if (col.tag == "TreasureChest") {　//宝箱にぶつかったときの処理を書く
 			//連打モードにしたい
 			GameManager.Instance.ChangeMode(Mode.Renda);
 			//Destroy (col.gameObject);//ぶつかった物を消す 
