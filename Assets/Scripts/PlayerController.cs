@@ -65,8 +65,16 @@ public class PlayerController : MonoBehaviour {
 
 	}
 
+	//Triggerにぶつかったら呼び出される
+	//colはぶつかったものの情報
+
 	void OnTriggerEnter2D (Collider2D col){
-		if (col.tag == "Goal") {
+		Debug.Log (1);
+		if (col.tag == "Goal") { //　Goalにぶつかったときの処理を書く
+		} else if (col.tag == "TreasureChest") {　//宝箱にぶつかったときの処理を書く
+			//連打モードにしたい
+			Debug.Log(2);
+			Destroy (col.gameObject);//ぶつかった物を消す 
 		}
 	}
 }
