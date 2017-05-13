@@ -6,6 +6,7 @@ TagManager:
   tags:
   - TreasureChest
   - Goal
+  - Enemy
   layers:
   - Default
   - TransparentFX

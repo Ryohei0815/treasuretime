@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 //Playerの動きを制御する
@@ -31,22 +32,23 @@ public class PlayerController : MonoBehaviour {
 		//モードがRendaの時
 		else if (GameManager.Instance.currentMode == Mode.Renda){
 
-			if (Input.GetKeyDown (KeyCode.Space)) {
+			if (Input.GetKeyDown (KeyCode.Space)) { // スペースキーで連打する
 				PushRenda ();
 			}
 
-			if (Input.GetKeyDown (KeyCode.DownArrow)) {
+			if (Input.GetKeyDown (KeyCode.DownArrow)) { // 下キーで戦闘モードに移行する
 				GameManager.Instance.ChangeMode (Mode.Combat);
 			}
 
 		}
-
+		//モードがCombatの時
 		if (GameManager.Instance.currentMode == Mode.Combat) {
 			Move ();
 		}
 
 	}
 
+	// プレイヤーの動きを制御する
 	void Move(){
 		if (Input.GetKey (KeyCode.LeftArrow)) {
 			transform.position += Vector3.left * speed * Time.deltaTime;
@@ -67,7 +69,7 @@ public class PlayerController : MonoBehaviour {
 
 	// 連打ボタンを押す
 	void PushRenda(){
-		GameManager.Instance.AddRendaCount ();
+		GameManager.Instance.AddRendaCount (); // 連打カウントを増やす
 
 		GenerateEffect ();
 
@@ -85,11 +87,13 @@ public class PlayerController : MonoBehaviour {
 
 	void OnTriggerEnter2D (Collider2D col){
 		if (col.tag == "Goal") { //Goalにぶつかったときの処理を書く
+			SceneManager.LoadScene("Game Clear"); //ゲームクリア画面に移行する
+		
 		} 
 
 		else if (col.tag == "TreasureChest") {　//宝箱にぶつかったときの処理を書く
 			//連打モードにしたい
-			GameManager.Instance.ChangeMode(Mode.Renda);
+			GameManager.Instance.ChangeMode(Mode.Renda); //連打モードに移行する
 			//Destroy (col.gameObject);//ぶつかった物を消す 
 		}
 	}

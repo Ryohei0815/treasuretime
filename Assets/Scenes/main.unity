@@ -121,7 +121,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4667862587515618, guid: 36fd18c44f7fd6c4d8abbee9cb75269f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.9999999
+      value: -0.47
       objectReference: {fileID: 0}
     - target: {fileID: 4667862587515618, guid: 36fd18c44f7fd6c4d8abbee9cb75269f, type: 2}
       propertyPath: m_LocalPosition.z
@@ -147,59 +147,17 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 4667862587515618, guid: 36fd18c44f7fd6c4d8abbee9cb75269f, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4667862587515618, guid: 36fd18c44f7fd6c4d8abbee9cb75269f, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 36fd18c44f7fd6c4d8abbee9cb75269f, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &121393539 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1547174976210978, guid: 923435010e36e63448cbcb0dbabefc28,
-    type: 2}
-  m_PrefabInternal: {fileID: 1823276436}
---- !u!61 &121393543
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 121393539}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 6.84, y: 8}
-    newSize: {x: 6.84, y: 8}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.49, y: 8}
-  m_EdgeRadius: 0
---- !u!50 &121393544
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 121393539}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!1 &194090690
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,7 +411,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4383524327329060, guid: 31640d671c202524dbb0da5364e41bc5, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1
+      value: -4.2
       objectReference: {fileID: 0}
     - target: {fileID: 4383524327329060, guid: 31640d671c202524dbb0da5364e41bc5, type: 2}
       propertyPath: m_LocalPosition.y
@@ -483,22 +441,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
-    - target: {fileID: 212455347598216660, guid: 31640d671c202524dbb0da5364e41bc5,
+    - target: {fileID: 114132357953220926, guid: 31640d671c202524dbb0da5364e41bc5,
         type: 2}
-      propertyPath: m_Sprite
+      propertyPath: player
       value: 
-      objectReference: {fileID: 21300000, guid: 705e1f5848d04bd44854f1a1f0947d84,
-        type: 3}
-    - target: {fileID: 212455347598216660, guid: 31640d671c202524dbb0da5364e41bc5,
-        type: 2}
-      propertyPath: m_Size.x
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 212455347598216660, guid: 31640d671c202524dbb0da5364e41bc5,
-        type: 2}
-      propertyPath: m_Size.y
-      value: 7.39
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1824470946}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 31640d671c202524dbb0da5364e41bc5, type: 2}
   m_IsPrefabParent: 0
@@ -789,7 +736,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: werfghfdxcvg
+  m_Text: Score
 --- !u!222 &1551888756
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -838,6 +785,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 923435010e36e63448cbcb0dbabefc28, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1824470946 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1547174976210978, guid: 923435010e36e63448cbcb0dbabefc28,
+    type: 2}
+  m_PrefabInternal: {fileID: 1823276436}
 --- !u!1 &1944626027
 GameObject:
   m_ObjectHideFlags: 0
@@ -911,7 +863,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 10d0f80104f6a0443a8dc31bd9343e8d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
