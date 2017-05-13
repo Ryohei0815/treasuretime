@@ -9,9 +9,9 @@ public class PlayerController : MonoBehaviour {
 
 	float speed = 3;
 
-	bool rendamode = false;
+	/*bool rendamode = false;
 
-	int count = 0;
+	int count = 0;*/
 
 	float timer;
 
@@ -86,10 +86,11 @@ public class PlayerController : MonoBehaviour {
 	//colはぶつかったものの情報
 
 	void OnTriggerEnter2D (Collider2D col){
-		if (col.tag == "Goal") { //Goalにぶつかったときの処理を書く
-			SceneManager.LoadScene("Game Clear"); //ゲームクリア画面に移行する
-		
-		} 
+		if(GameManager.Instance.currentMode == Mode.Combat){
+			if (col.tag == "Goal") {//Goalにぶつかったときの処理を書く
+				SceneManager.LoadScene("Game Clear"); //ゲームクリア画面に移行する
+			}
+		}
 
 		else if (col.tag == "TreasureChest") {　//宝箱にぶつかったときの処理を書く
 			//連打モードにしたい
