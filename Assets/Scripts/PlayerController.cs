@@ -7,14 +7,14 @@ using UnityEngine.SceneManagement;
 //Playerの動きを制御する
 public class PlayerController : MonoBehaviour {
 
-	float speed = 3;
+	float speed = 3; //Playerの動くスピード
+	public int playerHP = 3; //Playerの体力
+	float timer;
+	public GameObject PlayerHeart;
+	public GameObject PlayerHeart1;
 
 	/*bool rendamode = false;
-
 	int count = 0;*/
-
-	float timer;
-
 
 	// Use this for initialization
 	void Start () {
@@ -96,6 +96,19 @@ public class PlayerController : MonoBehaviour {
 			//連打モードにしたい
 			GameManager.Instance.ChangeMode(Mode.Renda); //連打モードに移行する
 			//Destroy (col.gameObject);//ぶつかった物を消す 
+		}
+	}
+
+	void PlayerDamage (){
+		playerHP--;
+		if (playerHP <= 0) {
+			SceneManager.LoadScene ("Game Over");
+		}
+		if (playerHP <= 2) {
+			Destroy (PlayerHeart);
+		}
+		if (playerHP <= 1) {
+			Destroy (PlayerHeart1);
 		}
 	}
 }

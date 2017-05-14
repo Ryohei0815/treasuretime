@@ -30,9 +30,10 @@ public class EnemyController : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D (Collider2D col){
-		if (GameManager.Instance.currentMode == Mode.Combat) {
-			if (col.tag == "Player") {
-				Destroy (this.gameObject);
+		if (GameManager.Instance.currentMode == Mode.Combat) { //戦闘モードの時
+			if (col.tag == "Player") { //Playerに当たったら
+				col.gameObject.SendMessage ("PlayerDamage"); //"PlayerDamage"と送る
+				Destroy (this.gameObject); //自分は消える
 			}
 		}
 	}

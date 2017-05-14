@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TimeUIManager : MonoBehaviour {
 
@@ -10,7 +11,7 @@ public class TimeUIManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		GetComponent<Text> ().text = "Time Limit:" + ((int)time).ToString ();	
+		GetComponent<Text> ().text = "Time Limit:" + ((int)time).ToString () + "s";	
 	}
 	
 	// Update is called once per frame
@@ -21,8 +22,11 @@ public class TimeUIManager : MonoBehaviour {
 		//時間が０以下にならないようにする
 		if (time < 0) {
 			time = 0;
+
+			SceneManager.LoadScene("Game Over");
+
 		}
-		GetComponent<Text> ().text = "Time Limit:" + ((int)time).ToString ();
+		GetComponent<Text> ().text = "Time Limit:" + ((int)time).ToString () + "s";
 		
 	}
 }

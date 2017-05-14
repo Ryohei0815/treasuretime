@@ -10,4 +10,7 @@ EditorBuildSettings:
     guid: 8b91ba67d1db80e48b20d0c106366a47
   - enabled: 1
     path: Assets/Scenes/Game Clear.unity
+    guid: f8ada5751f5ef474c8a2b9cc4f250e01
+  - enabled: 1
+    path: Assets/Scenes/Game Over.unity
     guid: 00000000000000000000000000000000
