@@ -10,7 +10,9 @@ public class GameManager : MonoBehaviour {
 
 	public static GameManager Instance = null;
 
-	public int RendaCount = 0;
+	//public int RendaCount = 0;
+
+	public GameObject PointObject;
 
 
 	void Awake(){
@@ -22,6 +24,9 @@ public class GameManager : MonoBehaviour {
 			Destroy (this.gameObject);
 			// 2つのGameManagerが存在しないようにする
 		}
+
+		PointScript poi1 = PointObject.GetComponent<PointScript> ();
+		poi1.Point = 0;
 			
 	}
 
@@ -47,7 +52,8 @@ public class GameManager : MonoBehaviour {
 
 	//連打するとカウントが増える
 	public void AddRendaCount(){
-		RendaCount++;
+		PointScript poi = PointObject.GetComponent<PointScript> ();
+		poi.Point++;
 
 	}
 		

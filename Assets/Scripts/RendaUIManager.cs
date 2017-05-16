@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class RendaUIManager : MonoBehaviour {
 
 	public Text RendaText;
+	public GameObject PointObject;
 
 	// Use this for initialization
 	void Start () {
@@ -14,8 +15,8 @@ public class RendaUIManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-		RendaText.text = "Score:" + GameManager.Instance.RendaCount.ToString (); //連打カウントを画面に表示する
+		PointScript poi = PointObject.GetComponent<PointScript> ();
+		RendaText.text = "Score:" + poi.Point.ToString (); //連打カウントを画面に表示する
 
 	}
 }

@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+		GameManager.Instance.ChangeMode (Mode.Exploration);
 		
 	}
 	
@@ -96,6 +98,10 @@ public class PlayerController : MonoBehaviour {
 			//連打モードにしたい
 			GameManager.Instance.ChangeMode(Mode.Renda); //連打モードに移行する
 			//Destroy (col.gameObject);//ぶつかった物を消す 
+		}
+
+		if (col.tag == "Key") {
+			Destroy (col.gameObject);
 		}
 	}
 
