@@ -7,6 +7,8 @@ public class GameClearScoreScript : MonoBehaviour {
 
 	public Text ScoreText;
 
+	public Text[] rankingText = new Text[5];
+
 	GameObject FindObject;
 
 	// Use this for initialization
@@ -18,6 +20,7 @@ public class GameClearScoreScript : MonoBehaviour {
 
 		ScoreText.text = "SCORE:" + poi.Point.ToString();
 
+		poi.RankingUIText ();
 	}
 	
 	// Update is called once per frame

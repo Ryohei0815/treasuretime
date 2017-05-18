@@ -25,7 +25,7 @@ public class EnemySpawerController : MonoBehaviour {
 
 	//敵を生成を制御する
 	void EnemyGenerate (){
-		Instantiate (enemy, new Vector2(Random.Range(-6.0f,5.8f), Random.Range(-4.5f,2.6f)),Quaternion.identity);
+		Instantiate (enemy, new Vector2(Random.Range(-6.0f,5.8f), Random.Range(-4.5f,2.4f)),Quaternion.identity);
 		//指定された座標の範囲内にランダムで敵を生成
 	}
 }

@@ -33,6 +33,7 @@ public class EnemyController : MonoBehaviour {
 		if (GameManager.Instance.currentMode == Mode.Combat) { //戦闘モードの時
 			if (col.tag == "Player") { //Playerに当たったら
 				col.gameObject.SendMessage ("PlayerDamage"); //"PlayerDamage"と送る
+				Camera.main.GetComponent<ObjectShakerScript>().Shake();
 				Destroy (this.gameObject); //自分は消える
 			}
 		}

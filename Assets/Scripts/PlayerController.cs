@@ -12,6 +12,9 @@ public class PlayerController : MonoBehaviour {
 	float timer;
 	public GameObject PlayerHeart;
 	public GameObject PlayerHeart1;
+	public GameObject order;
+
+	GameObject FindObject;
 
 	/*bool rendamode = false;
 	int count = 0;*/
@@ -19,8 +22,13 @@ public class PlayerController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+		FindObject = GameObject.Find("PointObject");
+
+		PointScript poi = FindObject.GetComponent<PointScript> ();
+		poi.Point = 0;
+
 		GameManager.Instance.ChangeMode (Mode.Exploration);
-		
+
 	}
 	
 	// Update is called once per frame
@@ -90,6 +98,12 @@ public class PlayerController : MonoBehaviour {
 	void OnTriggerEnter2D (Collider2D col){
 		if(GameManager.Instance.currentMode == Mode.Combat){
 			if (col.tag == "Goal") {//Goalにぶつかったときの処理を書く
+				FindObject = GameObject.Find("PointObject");
+
+				PointScript poi = FindObject.GetComponent<PointScript> ();
+
+				poi.RankingSort ();
+
 				SceneManager.LoadScene("Game Clear"); //ゲームクリア画面に移行する
 			}
 		}
@@ -97,13 +111,23 @@ public class PlayerController : MonoBehaviour {
 		else if (col.tag == "TreasureChest") {　//宝箱にぶつかったときの処理を書く
 			//連打モードにしたい
 			GameManager.Instance.ChangeMode(Mode.Renda); //連打モードに移行する
-			//Destroy (col.gameObject);//ぶつかった物を消す 
+
+			Instantiate (order, new Vector2(0.3f,4.47f),Quaternion.identity);
+
+			/*if(Instantiate (order, new Vector2(5.0f,4.41f),Quaternion.identity)){
+				Destroy (order.gameObject, 1.0f);
+			}*/                                                                                       
+			//Invoke ("orderdestroy", 1.0f);
 		}
 
 		if (col.tag == "Key") {
 			Destroy (col.gameObject);
 		}
 	}
+
+	//void orderdestroy (){
+	//	Destroy (order);
+	//}
 
 	void PlayerDamage (){
 		playerHP--;

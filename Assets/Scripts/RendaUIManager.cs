@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class RendaUIManager : MonoBehaviour {
 
 	public Text RendaText;
-	public GameObject PointObject;
+	GameObject FindObject;
 
 	// Use this for initialization
 	void Start () {
@@ -15,7 +15,9 @@ public class RendaUIManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		PointScript poi = PointObject.GetComponent<PointScript> ();
+		FindObject = GameObject.Find("PointObject");
+
+		PointScript poi = FindObject.GetComponent<PointScript> ();
 		RendaText.text = "Score:" + poi.Point.ToString (); //連打カウントを画面に表示する
 
 	}
