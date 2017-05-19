@@ -12,7 +12,8 @@ public class PlayerController : MonoBehaviour {
 	float timer;
 	public GameObject PlayerHeart;
 	public GameObject PlayerHeart1;
-	public GameObject order;
+	public GameObject order1;
+	public GameObject order2;
 
 	GameObject FindObject;
 
@@ -48,6 +49,8 @@ public class PlayerController : MonoBehaviour {
 
 			if (Input.GetKeyDown (KeyCode.DownArrow)) { // 下キーで戦闘モードに移行する
 				GameManager.Instance.ChangeMode (Mode.Combat);
+
+				Instantiate (order2, new Vector2(-4.1f,-4.22f),Quaternion.identity);
 			}
 
 		}
@@ -112,7 +115,7 @@ public class PlayerController : MonoBehaviour {
 			//連打モードにしたい
 			GameManager.Instance.ChangeMode(Mode.Renda); //連打モードに移行する
 
-			Instantiate (order, new Vector2(0.3f,4.47f),Quaternion.identity);
+			Instantiate (order1, new Vector2(0.3f,4.47f),Quaternion.identity);
 
 			/*if(Instantiate (order, new Vector2(5.0f,4.41f),Quaternion.identity)){
 				Destroy (order.gameObject, 1.0f);

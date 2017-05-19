@@ -102,6 +102,8 @@ MonoBehaviour:
   playerHP: 3
   PlayerHeart: {fileID: 0}
   PlayerHeart1: {fileID: 0}
+  order1: {fileID: 1228930679112142, guid: a0d3d5c6819cbdb4a943975e0cb110e8, type: 2}
+  order2: {fileID: 1187010993467934, guid: 860a0ca28bd158a4ab9c6faab2268f33, type: 2}
 --- !u!212 &212054443185678446
 SpriteRenderer:
   m_ObjectHideFlags: 1
